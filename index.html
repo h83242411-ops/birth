@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>للأميرة نرجس❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+    transition:1s;
+}
+
+/* أسود بالبداية */
+.off{
+    background:black;
+}
+
+/* بعد تشغيل اللمبة */
+.on{
+    background: radial-gradient(circle at top, #ff66b2, #2a001f);
+}
+
+.center{
+    position:absolute;
+    top:30%;
+    width:100%;
+}
+
+button{
+    padding:15px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    background:#ffcc00;
+    color:black;
+    box-shadow:0 0 15px #ffcc00;
+    margin-top:15px;
+}
+
+.hidden{display:none;}
+
+/* نص البداية */
+.title{
+    color:#ff66cc;
+    font-size:32px;
+    margin-top:10px;
+}
+
+/* التاج فوق الكلمة */
+.crown{
+    font-size:30px;
+    display:block;
+    margin-bottom:5px;
+}
+
+/* الورقة */
+.paper{
+    background:#b30000;
+    width:80%;
+    max-width:500px;
+    margin:40px auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 30px red;
+    color:black;
+    font-size:20px;
+    line-height:2;
+}
+</style>
+</head>
+
+<body class="off">
+
+<!-- المرحلة 1 -->
+<div class="center" id="step1">
+    <h2>🎁 عندج مفاجأة</h2>
+    <button onclick="turnOn()">تشغيل اللمبة 💡</button>
+</div>
+
+<!-- المرحلة 2 -->
+<div class="center hidden" id="step2">
+
+    <div class="crown">👑</div>
+    <div class="title">هلا بالأميرة نور</div>
+
+    <div style="margin-top:20px;">
+        عندج الج مفاجأة 💖
+    </div>
+
+    <button onclick="showPaper()">اضغطي هنا</button>
+</div>
+
+<!-- الورقة -->
+<div id="paper" class="hidden"></div>
+
+<script>
+
+function turnOn(){
+    document.body.classList.remove("off");
+    document.body.classList.add("on");
+
+    document.getElementById("step1").style.display="none";
+    document.getElementById("step2").classList.remove("hidden");
+}
+
+/* المعايدة */
+let text = `في هذا اليوم الجميل…
+يوم ميلادك يا نور الحياة 💖
+
+وجودك مو عادي…
+أنتِ أجمل صدفة وأحلى قدر.
+
+كل سنة وأنتِ الفرحة اللي ما تنوصف،
+والنور اللي ما يطفي أبدًا.
+
+أحبك أكثر من كل الكلمات،
+وأكثر من كل اللحظات ❤️
+`;
+
+function showPaper(){
+    document.getElementById("step2").style.display="none";
+
+    let paper = document.getElementById("paper");
+    paper.classList.remove("hidden");
+    paper.classList.add("paper");
+
+    typeWriter();
+}
+
+let i=0;
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("paper").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter,40);
+    } else {
+        document.getElementById("paper").innerHTML += "<br><br>💖 حسين و أميرته ❤️";
+    }
+}
+
+</script>
+
+</body>
+</html>
